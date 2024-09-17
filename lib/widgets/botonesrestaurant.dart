@@ -10,8 +10,10 @@ class BotonesRestaurant extends StatelessWidget {
     super.key,
   });
 
-  //int tanda1 = embertanda1;
-  //int tanda2 = embertanda2;
+  //int tanda1 = ember["tanda1"];
+ // int tanda2 = embertanda2;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class BotonesRestaurant extends StatelessWidget {
               Column(
                 children: [
                   TextButton(onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>EmberScreen(tanda1: ember["tanda1"], tanda2: ember["tanda2"])));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>EmberScreen()));
                   }, child: const Text("Ember", style: textoStilos,)),
                  const Text("   Restaurante de carne", style: TextStyle(fontSize: 20),),
                 ],
