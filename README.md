@@ -1,3 +1,4 @@
 # restaurant_app
 
-A new Flutter project.
+Autor:
+ERISON PINEDA RODRIGUEZ

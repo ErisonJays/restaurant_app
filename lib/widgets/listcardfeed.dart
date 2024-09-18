@@ -18,7 +18,7 @@ class ListCardFeed extends StatelessWidget {
               //EL listview.builder creara una cantidad determinada o infinita de elementos.
       itemCount: ListCard.length,
       itemBuilder: (context, index){
-      return CardFeed( 
+      return  CardFeed( 
         card: ListCard[index],
         );
     });

@@ -36,7 +36,10 @@ class BotonesRestaurant extends StatelessWidget {
               Column(
                 children: [
                   TextButton(onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>EmberScreen()));
+
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>EmberScreen(tanda1: ember["tanda1"], 
+                    tanda2: ember["tanda2"] , restaurante: ember["restaurante"],)));
+
                   }, child: const Text("Ember", style: textoStilos,)),
                  const Text("   Restaurante de carne", style: TextStyle(fontSize: 20),),
                 ],
@@ -52,7 +55,11 @@ class BotonesRestaurant extends StatelessWidget {
              const Image(image: AssetImage('assets/img/japones.jpg'), width: 100,),
               Column(
                 children: [
-                  TextButton(onPressed: () {}, child: const Text("Zao", style: textoStilos,)),
+                  TextButton(onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> EmberScreen(tanda1: zao["tanda1"], 
+                    tanda2: zao["tanda2"] , restaurante: zao["restaurante"],)));
+                 
+                  }, child: const Text("Zao", style: textoStilos,)),
                   const Text("   Restaurante japones", style: TextStyle(fontSize: 20),),
                 ],
               ),
@@ -66,7 +73,11 @@ class BotonesRestaurant extends StatelessWidget {
               const Image(image: AssetImage('assets/img/italiano.jpg'), width: 100,),
              Column(
                children: [
-                 TextButton(onPressed: () {}, child: const Text("Grappa", style: textoStilos,)),
+                 TextButton(onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>EmberScreen(tanda1: grappa["tanda1"], 
+                  tanda2: grappa["tanda2"] , restaurante: grappa["restaurante"],)));
+                
+                 }, child: const Text("Grappa", style: textoStilos,)),
                  const Text("   Restaurante italiano", style: TextStyle(fontSize: 20),),
                ],
              )
@@ -81,8 +92,14 @@ class BotonesRestaurant extends StatelessWidget {
               
              Column(
                children: [
-                 TextButton(onPressed: () {}, child: const Text("Larimar", style: textoStilos,)),
+                 TextButton(onPressed: () {
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>EmberScreen(tanda1: larimar["tanda1"], 
+                  tanda2: larimar["tanda2"] ,restaurante: larimar["restaurante"],)));
+
+                 }, child: const Text("Larimar", style: textoStilos,)),
                  const Text("   Restaurante de marisco", style: TextStyle(fontSize: 20),),
+
                ],
              )
             ],

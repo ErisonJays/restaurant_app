@@ -1,9 +1,13 @@
 import "package:flutter/material.dart";
+import "package:restaurant_app/Screen/emberscreen.dart";
+import "package:restaurant_app/Screen/nuevaReserScreen.dart";
 import "package:restaurant_app/data/data.dart";
 import "package:restaurant_app/estilos/estilos.dart";
 import "package:restaurant_app/widgets/listcardfeed.dart";
 
 import "../widgets/botonesprincipal.dart";
+import "appbar/appbarconsulta.dart";
+import "homescreen.dart";
 
 
 class ConsultaScreen extends StatelessWidget {
@@ -11,7 +15,7 @@ class ConsultaScreen extends StatelessWidget {
     super.key,
   });
 
-String restaurante = ember["restaurante"];
+//String restaurante = ember["restaurante"];
 int cantidadRegistro = ember.length;
 
   @override
@@ -22,15 +26,19 @@ int cantidadRegistro = ember.length;
     return Scaffold(
 
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Column(
           children: [
             Text("Consulta", style: tituloStilos,),
              Text("Lista de reservaciones", style:parrafoStilos),
+             
           ],
         ),
         backgroundColor: Colors.amber,
         toolbarHeight: 90,
-        
+         actions: <Widget>[
+        AppBarConsulta(),
+      ],
         
       ),
 
@@ -53,3 +61,4 @@ int cantidadRegistro = ember.length;
     );
   }
 }
+

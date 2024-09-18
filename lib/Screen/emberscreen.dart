@@ -1,47 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:restaurant_app/Screen/consultascreen.dart';
 import 'package:restaurant_app/Screen/nuevaReserScreen.dart';
+import 'package:restaurant_app/widgets/validacion.dart';
 
 import '../data/data.dart';
 import '../estilos/estilos.dart';
 import '../widgets/alerta.dart';
+import 'appbar/appbarreservar.dart';
+import 'homescreen.dart';
 
 class EmberScreen extends StatelessWidget {
   EmberScreen({
     super.key,
-    // required this.tanda1,
-    // required this.tanda2,
+    required this.tanda1,
+    required this.tanda2,
+    required this.restaurante,
+    //required this.empresa,
   });
 
-  int tanda1 = ember["tanda1"];
-  int tanda2 = ember["tanda2"];
+  int tanda1;
+  int tanda2;
+  String restaurante;
 
   String nombre = "";
   int cantidad = 0;
 
-  int contador = 0;
-  int contador2 = 0;
-
   bool salirPantalla = false;
-
-  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false, // eiminar botor por defecto de volver a pantalla
         title: const Text(
-          "Ember",
+          "Realizar Reservaciones",
           style: tituloStilos,
         ),
         backgroundColor: Colors.amber,
         toolbarHeight: 90,
+         actions: <Widget>[
+        AppBarReservar(),
+      ],
       ),
       body: Padding(
-
-
-        
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
@@ -53,12 +55,11 @@ class EmberScreen extends StatelessWidget {
                 Text("$tanda1", style: valorstilos),
               ],
             ),
-           Row(
-              
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text("8 a 10 pm: ", style: textoStilos),
-                 Text("$tanda2", style: valorstilos),
+                Text("$tanda2", style: valorstilos),
               ],
             ),
             Column(
@@ -91,50 +92,37 @@ class EmberScreen extends StatelessWidget {
               children: [
                 TextButton(
                     onPressed: () {
+                      //validacion de campos
 
-                      if (nombre.isEmpty){
-                         msgAlerta = "Debe introducir su Nombre";
-                     showAlertDialog(context);
+                      //  print("RESTAURANTE$restaurante");
+                      validacion(
+                          nombre, restaurante, cantidad, tanda1, context);
+
+                          String horario = "6 a 8pm";
+
+                      if (validacion(
+                          nombre, restaurante, cantidad, tanda1, context)) {
+                        if (restaurante == "Ember") {
+                          ember["tanda1"] = ember["tanda1"] - 1;
+                          //  print (ember["tanda1"]);
+                        } else if (restaurante == "Zao") {
+                          zao["tanda1"] = zao["tanda1"] - 1;
+                        } else if (restaurante == "Grappa") {
+                          grappa["tanda1"] = grappa["tanda1"] - 1;
+                        } else if (restaurante == "Larimar") {
+                          larimar["tanda1"] = larimar["tanda1"] - 1;
+                        }
+                        // ember["tanda1"] = ember["tanda1"] - 1;
                       }
 
-                      else if (cantidad == 0){
-                         msgAlerta = "Debe introducir la cantidad de personas";
-                     showAlertDialog(context);
-                      }
-
-
-                     else if (tanda1 >= 1) {
-
-                     
-
-                        --tanda1;
-                        ember["tanda1"] = tanda1;
-                        ++contador;
-
-                        ember.addAll({
-                          "nombre$contador": "$nombre",
-                          "cantidad": "$cantidad",
-                          "Horario": "6 a 8pm"
-
-
-                        });
-
-                         msgAlerta = "Reservado exitosamente!!!";
-                     showAlertDialog(context);
-
-                                             
-                                   //ir a pantalla anterior
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ConsultaScreen()));
-
-                         msgAlerta = "Reservado exitosamente!!!";
-                     showAlertDialog(context);
-
-                      } 
-                      else {
-                      msgAlerta = "No hay Cupos disponible para este horario";
-                     showAlertDialog(context);
-                     
-                      }
+                      ListCard.addAll([
+                        {
+                          "nombre": nombre,
+                          "horario": horario,
+                          "restaurante": restaurante,
+                          // "cantidad": "$cantidad",
+                        },
+                      ]);
                     },
 
                     // condicional 2 --------------------------
@@ -144,43 +132,36 @@ class EmberScreen extends StatelessWidget {
                     )),
                 TextButton(
                     onPressed: () {
-                         
-                          if (nombre.isEmpty){
-                         msgAlerta = "Debe introducir su Nombre";
-                     showAlertDialog(context);
-                      }
+                      //validacion de campos
+                      validacion(
+                          nombre, restaurante, cantidad, tanda2, context);
 
-                      else if (cantidad == 0){
-                         msgAlerta = "Debe introducir la cantidad de personas";
-                     showAlertDialog(context);
-                      }
+                      if (validacion(
+                          nombre, restaurante, cantidad, tanda1, context)) {
+                        String horario = "8 a 10pm";
 
-
-                     else if (tanda2 >= 1) {
-                      
-                        --tanda2;
-                        ember["tanda2"] = tanda2;
-                        ++contador2;
-
-                        ember.addAll({
-                          "nombre$contador2": "$nombre",
-                          "cantidad": "$cantidad",
-                          "horario": "8 a 10pm"
-                        });
-
-                             //ir a pantalla anterior
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ConsultaScreen()));
-
-                        msgAlerta = "Reservado exitosamente!!!";
-                     showAlertDialog(context);
-
-                      //  print(ember);
-
-                      } 
-                      else {
-                      msgAlerta = "No hay Cupos disponible para este horario";
-                     showAlertDialog(context);
-                     
+                        if (restaurante == "Ember") {
+                          ember["tanda2"] = ember["tanda2"] - 1;
+                         //   print (ember["tanda1"]);
+                        } else if (restaurante == "Zao") {
+                          zao["tanda2"] = zao["tanda2"] - 1;
+                          zao["horario"] = zao[horario];
+                        } else if (restaurante == "Grappa") {
+                          grappa["tanda2"] = grappa["tanda2"] - 1;
+                          grappa["horario"] = grappa[horario];
+                        } else if (restaurante == "Larimar") {
+                          larimar["tanda2"] = larimar["tanda2"] - 1;
+                          larimar["horario"] = larimar[horario];
+                        }
+                        
+                      ListCard.addAll([
+                        {
+                          "nombre": nombre,
+                          "horario": horario,
+                          "restaurante": restaurante,
+                          // "cantidad": "$cantidad",
+                        }
+                      ]);
                       }
                     },
                     child: const Text("Reservar 8 a 10pm", style: botonStilos)),
@@ -189,10 +170,7 @@ class EmberScreen extends StatelessWidget {
           ],
         ),
       ),
-      
     );
-    
   }
-
-   
 }
+
