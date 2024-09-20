@@ -51,18 +51,6 @@ validacion(String nombre, String restaurante, cantidad, int tanda,
 
  }
 
-    
-    // ++contador;
-
-    // ListCard.addAll([
-    //   {
-    //     "nombre": nombre,
-    //     "horario": "",
-    //     "restaurante": restaurante,
-    //     // "cantidad": "$cantidad",
-    //   }
-    // ]);
-
     //ir a pantalla deconsulta
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => ConsultaScreen()));
