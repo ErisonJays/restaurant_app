@@ -5,7 +5,9 @@ import 'package:restaurant_app/estilos/estilos.dart';
 import 'package:restaurant_app/widgets/horariocard.dart';
 import 'package:restaurant_app/widgets/nombrecard.dart';
 import 'package:restaurant_app/widgets/restaurantecard.dart';
-
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:printing/printing.dart';
 
 
 
@@ -35,6 +37,7 @@ class CardFeed extends StatelessWidget {
       child:  Column(
        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+         
         //TitleCard(name: card["name"]!), // ! indica que el valor no es nulo
        NombreCardFeed(nombre: card["nombre"]!,),
        RestauranteCardFeed(restaurante: card["restaurante"]!,),
@@ -46,7 +49,3 @@ class CardFeed extends StatelessWidget {
     );
   }
 }
-
-
-
-

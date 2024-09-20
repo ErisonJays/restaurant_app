@@ -41,7 +41,9 @@ class BotonesPrincipal extends StatelessWidget {
             
             children: [
               const Image(image: AssetImage('assets/img/impresora.png'), width: 50,),
-             TextButton(onPressed: () {}, child: const Text("Imprimir", style: textoStilos,))
+             TextButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ConsultaScreen()));
+             } , child: const Text("Imprimir", style: textoStilos,))
             ],
           ),
 

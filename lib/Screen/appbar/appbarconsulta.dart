@@ -30,14 +30,7 @@ class AppBarConsulta extends StatelessWidget {
           
         ),
 
-          IconButton(
-          icon: const Icon(Icons.print, size: 35,),
-          tooltip: 'Imprimir',
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>NuevaReserScren(),));
-          },
-          
-        ),
+         
     
         
       ],

@@ -91,8 +91,9 @@ class EmberScreen extends StatelessWidget {
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextButton(
+                ElevatedButton(
                     onPressed: () {
                       //validacion de campos
                       button = 1;
@@ -106,7 +107,7 @@ class EmberScreen extends StatelessWidget {
                       "Reservar 6 a 8pm",
                       style: botonStilos,
                     )),
-                TextButton(
+                 ElevatedButton(
                     onPressed: () {
                       
                         button = 2;

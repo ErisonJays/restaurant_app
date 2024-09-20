@@ -13,6 +13,8 @@ class ListCardFeed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    
     
     return ListView.builder(   
               //EL listview.builder creara una cantidad determinada o infinita de elementos.

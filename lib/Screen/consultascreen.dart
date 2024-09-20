@@ -38,35 +38,55 @@ int cantidadRegistro = ember.length;
         ),
         backgroundColor: Colors.amber,
         toolbarHeight: 90,
-         actions: <Widget>[
-      const  AppBarConsulta(), 
+         actions: const <Widget>[
+        AppBarConsulta(),  IconButton(
+          icon:  Icon(Icons.print, size: 35,),
+          tooltip: 'Imprimir',
+          onPressed:_createPdf,
+          
+        ), 
       ],
         
       ),
 
 
       body: 
-      
+             ListCardFeed(),
+           
+         
+           
      
-          ListCardFeed()
-          
-       
-    
-      
-      // Column(
-      //   children: [
-      //   const  Text("Lista de reservaciones", style:textoStilos),
-      //  //Text("$ember"),
-      // //  Text("Restaurante: $restaurante",style: parrafoStilos,),
-        
-      // //   for( int i = 0; i < cantidadRegistro; i--)   Text(ember[i],),
-      
-      //  ],
-      // ),
-          
       
     );
   }
 }
 
- 
+ /// create PDF & print it
+  void _createPdf() async {
+
+
+    final doc = pw.Document();
+
+    /// for using an image from assets
+    // final image = await imageFromAssetBundle('assets/image.png');
+
+    doc.addPage(
+      pw.Page(
+        pageFormat: PdfPageFormat.a4,
+        build: (pw.Context context) {
+          return pw.Center(
+            child: pw.Text("Nombre: $ListCard['Nombre']/n" 
+            "Restaurante: $ListCard['restaurante']/n" 
+             " Horario$ListCard['horario']"), 
+          ); // Center
+        },
+      ),
+    ); // Page
+
+    /// print the document using the iOS or Android print service:
+    await Printing.layoutPdf(onLayout: (PdfPageFormat format) async => doc.save());
+  }
+
+
+
+
