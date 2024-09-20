@@ -15,35 +15,46 @@ class BotonesPrincipal extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
-
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        
                
         children: [
+         const Text("Reservaciones", style: textoStilos,),
           Row(
+            
             children: [
               
-              const Image(image: AssetImage('assets/img/nuevo.png'), width: 50,),
-               TextButton(onPressed: () {
+             
+               ElevatedButton.icon(onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> NuevaReserScren()));
-               }, child:  const Text("Nueva reservacion", style: textoStilos, ),), 
+               }, 
+               
+               label:  const Text("Nueva reservacion", style: textoStilos, ),
+               icon: const Icon(Icons.add_circle_outline),), 
             ],
           ),
-      
+
+                
            Row(
             children: [
-             const Image(image: AssetImage('assets/img/consulta.png'), width: 50,),
-              TextButton(onPressed: () {
+             
+              ElevatedButton.icon(onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ConsultaScreen()));
-              }, child: const Text("Consultar", style: textoStilos,))
-            ],
+              },label: const Text("Consultar", style: textoStilos,),
+              icon: const Icon(Icons.search),
+               
+           ),]
           ),
       
           Row(
             
             children: [
-              const Image(image: AssetImage('assets/img/impresora.png'), width: 50,),
-             TextButton(onPressed: () {
+             
+             ElevatedButton.icon(onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context)=>ConsultaScreen()));
-             } , child: const Text("Imprimir", style: textoStilos,))
+             } , label: const Text("Imprimir", style: textoStilos,),
+             icon: const Icon(Icons.print),
+             )
             ],
           ),
 
