@@ -16,9 +16,11 @@ class BotonesPrincipal extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          
         
                
         children: [
+          
          const Text("Reservaciones", style: textoStilos,),
           Row(
             
@@ -29,7 +31,7 @@ class BotonesPrincipal extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> NuevaReserScren()));
                }, 
                
-               label:  const Text("Nueva reservacion", style: textoStilos, ),
+               label:  const Text("Reservar", style: textoStilos, ),
                icon: const Icon(Icons.add_circle_outline),), 
             ],
           ),
