@@ -32,7 +32,7 @@ class BotonesPrincipal extends StatelessWidget {
                }, 
                
                label:  const Text("Reservar", style: textoStilos, ),
-               icon: const Icon(Icons.add_circle_outline),), 
+               icon:  Icon(Icons.add_circle_outline, color: Colors.red[900],),), 
             ],
           ),
 
@@ -43,7 +43,7 @@ class BotonesPrincipal extends StatelessWidget {
               ElevatedButton.icon(onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ConsultaScreen()));
               },label: const Text("Consultar", style: textoStilos,),
-              icon: const Icon(Icons.search),
+              icon: Icon(Icons.search, color: Colors.red[900],), 
                
            ),]
           ),
@@ -55,7 +55,7 @@ class BotonesPrincipal extends StatelessWidget {
              ElevatedButton.icon(onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context)=>ConsultaScreen()));
              } , label: const Text("Imprimir", style: textoStilos,),
-             icon: const Icon(Icons.print),
+             icon:  Icon(Icons.print, color: Colors.red[900],),
              )
             ],
           ),
