@@ -24,7 +24,7 @@ class BotonesPrincipal extends StatelessWidget {
               const Image(image: AssetImage('assets/img/nuevo.png'), width: 50,),
                TextButton(onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> NuevaReserScren()));
-               }, child: const Text("Nueva reservacion", style: textoStilos,))
+               }, child:  const Text("Nueva reservacion", style: textoStilos, ),), 
             ],
           ),
       

@@ -26,6 +26,8 @@ class EmberScreen extends StatelessWidget {
   String nombre = "";
   int cantidad = 0;
 
+  int button = 0;
+
   bool salirPantalla = false;
 
   @override
@@ -93,36 +95,10 @@ class EmberScreen extends StatelessWidget {
                 TextButton(
                     onPressed: () {
                       //validacion de campos
+                      button = 1;
 
-                      //  print("RESTAURANTE$restaurante");
-                      validacion(
-                          nombre, restaurante, cantidad, tanda1, context);
-
-                          String horario = "6 a 8pm";
-
-                      if (validacion(
-                          nombre, restaurante, cantidad, tanda1, context)) {
-                        if (restaurante == "Ember") {
-                          ember["tanda1"] = ember["tanda1"] - 1;
-                          //  print (ember["tanda1"]);
-                        } else if (restaurante == "Zao") {
-                          zao["tanda1"] = zao["tanda1"] - 1;
-                        } else if (restaurante == "Grappa") {
-                          grappa["tanda1"] = grappa["tanda1"] - 1;
-                        } else if (restaurante == "Larimar") {
-                          larimar["tanda1"] = larimar["tanda1"] - 1;
-                        }
-                        // ember["tanda1"] = ember["tanda1"] - 1;
-                      }
-
-                      ListCard.addAll([
-                        {
-                          "nombre": nombre,
-                          "horario": horario,
-                          "restaurante": restaurante,
-                          // "cantidad": "$cantidad",
-                        },
-                      ]);
+                      validacion(nombre, restaurante, cantidad, tanda1, context, button);
+                      
                     },
 
                     // condicional 2 --------------------------
@@ -132,37 +108,10 @@ class EmberScreen extends StatelessWidget {
                     )),
                 TextButton(
                     onPressed: () {
-                      //validacion de campos
-                      validacion(
-                          nombre, restaurante, cantidad, tanda2, context);
+                      
+                        button = 2;
 
-                      if (validacion(
-                          nombre, restaurante, cantidad, tanda1, context)) {
-                        String horario = "8 a 10pm";
-
-                        if (restaurante == "Ember") {
-                          ember["tanda2"] = ember["tanda2"] - 1;
-                         //   print (ember["tanda1"]);
-                        } else if (restaurante == "Zao") {
-                          zao["tanda2"] = zao["tanda2"] - 1;
-                          zao["horario"] = zao[horario];
-                        } else if (restaurante == "Grappa") {
-                          grappa["tanda2"] = grappa["tanda2"] - 1;
-                          grappa["horario"] = grappa[horario];
-                        } else if (restaurante == "Larimar") {
-                          larimar["tanda2"] = larimar["tanda2"] - 1;
-                          larimar["horario"] = larimar[horario];
-                        }
-                        
-                      ListCard.addAll([
-                        {
-                          "nombre": nombre,
-                          "horario": horario,
-                          "restaurante": restaurante,
-                          // "cantidad": "$cantidad",
-                        }
-                      ]);
-                      }
+                      validacion(nombre, restaurante, cantidad, tanda1, context, button);
                     },
                     child: const Text("Reservar 8 a 10pm", style: botonStilos)),
               ],

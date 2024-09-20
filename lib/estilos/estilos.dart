@@ -18,7 +18,7 @@ const valorstilos = TextStyle(
   fontWeight: FontWeight.bold);
 
 const botonStilos = TextStyle(
-  fontSize: 20);
+  fontSize: 16);
 
   const parrafoStilos = TextStyle(
      fontWeight: FontWeight.bold,
